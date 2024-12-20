@@ -1,20 +1,18 @@
 RewriteEngine On
 
-# Force HTTPS and www in one step
+# Single redirect rule to handle HTTP, non-www, and root path to HTTPS www with language
+RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteRule ^(.*)$ https://www.afemida.com/en/ [L,R=301]
+
+# Handle other paths - force HTTPS and www only
+RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.afemida.com/$1 [L,R=301]
 
-# Handle language-specific redirects
-RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^$ /en/ [R=301,L]
-
-# Remove index.html from URLs
+# Clean up index.html
 RewriteRule ^(en|ru)/index\.html$ /$1/ [R=301,L]
-
-# Prevent redirect loops for language directories
-RewriteRule ^(en|ru)/?$ /$1/ [L]
-
 
 # <RequireAll>
 #   Require all denied

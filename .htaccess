@@ -1,21 +1,15 @@
 RewriteEngine On
 
-# Combine HTTP to HTTPS and non-www to www redirection into one step
+# Redirect HTTP to HTTPS and non-www to www in one step
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^afemida.com$
-RewriteRule ^ https://www.afemida.com%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.afemida.com/$1 [L,R=301]
 
-# Redirect root directly to the English version in one go
-RewriteCond %{HTTP_HOST} ^www.afemida.com$
+# Redirect the root URL to the English version
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule ^ https://www.afemida.com/en/ [L,R=301]
 
-# Ensure that direct accesses to language-specific directories are via HTTPS
-RewriteCond %{HTTPS} off
-RewriteCond %{REQUEST_URI} ^/(en|ru)/
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Redirect old index.html to the new page
+# Redirect specific pages to the new URLs
 Redirect 301 /en/index.html https://www.afemida.com/en/
 Redirect 301 /ru/index.html https://www.afemida.com/ru/
 
@@ -23,3 +17,25 @@ Redirect 301 /ru/index.html https://www.afemida.com/ru/
 # <RequireAll>
 #   Require all denied
 # </RequireAll>
+
+
+# RewriteEngine On
+
+# # Combine HTTP to HTTPS and non-www to www redirection into one step
+# RewriteCond %{HTTPS} off [OR]
+# RewriteCond %{HTTP_HOST} ^afemida.com$
+# RewriteRule ^ https://www.afemida.com%{REQUEST_URI} [L,R=301]
+
+# # Redirect root directly to the English version in one go
+# RewriteCond %{HTTP_HOST} ^www.afemida.com$
+# RewriteCond %{REQUEST_URI} ^/$
+# RewriteRule ^ https://www.afemida.com/en/ [L,R=301]
+
+# # Ensure that direct accesses to language-specific directories are via HTTPS
+# RewriteCond %{HTTPS} off
+# RewriteCond %{REQUEST_URI} ^/(en|ru)/
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# # Redirect old index.html to the new page
+# Redirect 301 /en/index.html https://www.afemida.com/en/
+# Redirect 301 /ru/index.html https://www.afemida.com/ru/

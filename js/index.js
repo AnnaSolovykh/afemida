@@ -88,3 +88,21 @@ const swiper = new Swiper(".swiper-slider", {
       },
     }
   });
+
+function showPreview(docUrl) {
+  try {
+      const encodedUrl = encodeURIComponent(docUrl);
+      const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
+      window.open(viewerUrl, '_blank');
+  } catch (error) {
+      console.error('Error opening preview:', error);
+  }
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('previewModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}

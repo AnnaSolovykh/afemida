@@ -1,3 +1,7 @@
+a[onclick] {
+    cursor: pointer;
+}
+
 /* header */
 
 .hero-background {

@@ -100,10 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showPreview(docUrl) {
+  console.log(`Button clicked`)
     try {
         const encodedUrl = encodeURIComponent(docUrl);
         const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
+        console.log(`"Processing url", ${docUrl}`)
         window.open(viewerUrl, '_blank');
+        console.log(`Window opened`)
     } catch (error) {
         console.error('Error opening preview:', error);
     }

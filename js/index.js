@@ -90,14 +90,19 @@ const swiper = new Swiper(".swiper-slider", {
   });
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.preview-link').forEach(link => {
+    console.log('DOMContentLoaded fired');
+    const links = document.querySelectorAll('.preview-link');
+    console.log(`Found ${links.length} preview-link elements`);
+    links.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault(); 
+            console.log('Click event listener attached to:', this);
+            event.preventDefault();
             const docUrl = this.getAttribute('data-url');
             showPreview(docUrl);
         });
     });
 });
+
 
 function showPreview(docUrl) {
   console.log(`Button clicked`)

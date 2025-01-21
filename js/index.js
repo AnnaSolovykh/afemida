@@ -89,15 +89,20 @@ const swiper = new Swiper(".swiper-slider", {
     }
   });
 
-window.showPreview = function(docUrl) {
-  try {
-      const encodedUrl = encodeURIComponent(docUrl);
-      const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
-      window.open(viewerUrl, '_blank');
-  } catch (error) {
-      console.error('Error opening preview:', error);
-  }
-}
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.preview-link').forEach(link => {
+        link.addEventListener('click', function() {
+            try {
+                const docUrl = this.getAttribute('data-url');
+                const encodedUrl = encodeURIComponent(docUrl);
+                const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
+                window.open(viewerUrl, '_blank');
+            } catch (error) {
+                console.error('Error opening preview:', error);
+            }
+        });
+    });
+});
 
 // Close modal when clicking outside
 window.onclick = function(event) {

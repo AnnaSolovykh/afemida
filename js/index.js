@@ -89,7 +89,7 @@ const swiper = new Swiper(".swiper-slider", {
     }
   });
 
-function showPreview(docUrl) {
+window.showPreview = function(docUrl) {
   try {
       const encodedUrl = encodeURIComponent(docUrl);
       const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;

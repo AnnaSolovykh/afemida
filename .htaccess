@@ -23,6 +23,12 @@ RewriteRule ^(en|ru)/index\.html$ /$1/ [R=301,L]
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+
+    # CSP headers to allow Microsoft Office viewer
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://view.officeapps.live.com; connect-src 'self' https://view.officeapps.live.com https://res.cloudinary.com; img-src 'self' https://res.cloudinary.com data:; style-src 'self' 'unsafe-inline';"
+    
+    # Allow cross-origin access for Microsoft Office viewer
+    Header set Access-Control-Allow-Origin "https://view.officeapps.live.com"
 </IfModule>
 
 # <RequireAll>

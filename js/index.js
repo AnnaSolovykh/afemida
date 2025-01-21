@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', function(event) {
             console.log('Click event listener attached to:', this);
             event.preventDefault();
+            event.stopImmediatePropagation();
             const docUrl = this.getAttribute('data-url');
             showPreview(docUrl);
         });

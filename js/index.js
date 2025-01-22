@@ -105,7 +105,7 @@ const swiper = new Swiper(".swiper-slider", {
   });
   
   
-  function showPreview(docUrl) {
+ /* function showPreview(docUrl) {
   console.log(`Button clicked`)
     try {
         const encodedUrl = encodeURIComponent(docUrl);
@@ -117,9 +117,9 @@ const swiper = new Swiper(".swiper-slider", {
         console.error('Error opening preview:', error);
         window.location.href = docUrl;
     }
-  }
+  }*/
 
-  /*
+  
     function showPreview(docUrl) {
     console.log('Attempting preview with:', docUrl);
     try {
@@ -131,7 +131,7 @@ const swiper = new Swiper(".swiper-slider", {
         console.error('Preview failed:', error);
         window.location.href = docUrl;
     }
-}*/
+}
   
 // Close modal when clicking outside
 window.onclick = function(event) {

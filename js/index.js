@@ -106,6 +106,21 @@ const swiper = new Swiper(".swiper-slider", {
   
   
   function showPreview(docUrl) {
+  console.log(`Button clicked`)
+    try {
+        const encodedUrl = encodeURIComponent(docUrl);
+        const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
+        console.log(`"Processing url", ${docUrl}`)
+        window.open(viewerUrl, '_blank');
+        console.log(`Window opened`)
+    } catch (error) {
+        console.error('Error opening preview:', error);
+        window.location.href = docUrl;
+    }
+  }
+
+  /*
+    function showPreview(docUrl) {
     console.log('Attempting preview with:', docUrl);
     try {
         const encodedUrl = encodeURIComponent(docUrl);
@@ -116,7 +131,8 @@ const swiper = new Swiper(".swiper-slider", {
         console.error('Preview failed:', error);
         window.location.href = docUrl;
     }
-}
+}*/
+  
 // Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('previewModal');

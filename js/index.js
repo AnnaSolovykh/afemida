@@ -90,6 +90,26 @@ const swiper = new Swiper(".swiper-slider", {
   });
 
   document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.preview-link');
+    
+    links.forEach(link => {
+        link.setAttribute('target', '_blank'); 
+        link.setAttribute('rel', 'noopener noreferrer');
+        
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const docUrl = this.getAttribute('data-url');
+            
+            const newWindow = window.open(docUrl, '_blank');
+            
+            if (newWindow === null || typeof(newWindow) === 'undefined') {
+                window.location.href = docUrl;
+            }
+        });
+    });
+});
+
+ /* document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded fired');
     const links = document.querySelectorAll('.preview-link');
     console.log(`Found ${links.length} preview-link elements`);
@@ -103,7 +123,7 @@ const swiper = new Swiper(".swiper-slider", {
         });
     });
   });
-  
+  */
   
  /* function showPreview(docUrl) {
   console.log(`Button clicked`)
@@ -120,7 +140,7 @@ const swiper = new Swiper(".swiper-slider", {
   }*/
 
   
-    function showPreview(docUrl) {
+    /*function showPreview(docUrl) {
     console.log('Attempting preview with:', docUrl);
     try {
         const encodedUrl = encodeURIComponent(docUrl);
@@ -131,7 +151,7 @@ const swiper = new Swiper(".swiper-slider", {
         console.error('Preview failed:', error);
         window.location.href = docUrl;
     }
-}
+}*/
   
 // Close modal when clicking outside
 window.onclick = function(event) {

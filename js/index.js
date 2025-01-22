@@ -1,32 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded fired');
-  const links = document.querySelectorAll('.preview-link');
-  console.log(`Found ${links.length} preview-link elements`);
-  links.forEach(link => {
-      link.addEventListener('click', function(event) {
-          console.log('Click event listener attached to:', this);
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          const docUrl = this.getAttribute('data-url');
-          showPreview(docUrl);
-      });
-  });
-});
-
-
-function showPreview(docUrl) {
-console.log(`Button clicked`)
-  try {
-      const encodedUrl = encodeURIComponent(docUrl);
-      const viewerUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}&wdEmbedCode=0`;
-      console.log(`"Processing url", ${docUrl}`)
-      window.open(viewerUrl, '_blank');
-      console.log(`Window opened`)
-  } catch (error) {
-      console.error('Error opening preview:', error);
-  }
-}
-
 const swiper = new Swiper(".swiper-slider", {
     centeredSlides: true,
     slidesPerView: 1,
@@ -118,6 +89,34 @@ const swiper = new Swiper(".swiper-slider", {
     }
   });
 
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded fired');
+    const links = document.querySelectorAll('.preview-link');
+    console.log(`Found ${links.length} preview-link elements`);
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            console.log('Click event listener attached to:', this);
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            const docUrl = this.getAttribute('data-url');
+            showPreview(docUrl);
+        });
+    });
+  });
+  
+  
+  function showPreview(docUrl) {
+    console.log('Attempting preview with:', docUrl);
+    try {
+        const encodedUrl = encodeURIComponent(docUrl);
+        const viewerUrl = `https://docs.google.com/viewer?url=${encodedUrl}&embedded=true`;
+        console.log('Opening viewer URL:', viewerUrl);
+        window.open(viewerUrl, '_blank');
+    } catch (error) {
+        console.error('Preview failed:', error);
+        window.location.href = docUrl;
+    }
+}
 // Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('previewModal');

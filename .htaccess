@@ -1,45 +1,44 @@
-# Enable the rewrite engine
-RewriteEngine On
+ # Enable the rewrite engine
+ RewriteEngine On
 
-# Add HSTS header with preload
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-# Force HTTPS and www for all requests
-RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://www.afemida.com/$1 [L,R=301]
-
-# Handle language-specific root paths
-RewriteCond %{REQUEST_URI} ^/ru/?$
-RewriteRule ^(.*)$ https://www.afemida.com/ru/ [L,R=301]
-
-RewriteCond %{REQUEST_URI} ^/en/?$
-RewriteRule ^(.*)$ https://www.afemida.com/en/ [L,R=301]
-
-# Clean up index.html
-RewriteRule ^(en|ru)/index\.html$ /$1/ [R=301,L]
-
-<IfModule mod_headers.c>
-    # Security headers
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-XSS-Protection "1; mode=block"
-
-    # CSP headers to allow Microsoft Office viewer
-    Header set Content-Security-Policy "
-        default-src 'self'; 
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; 
-        frame-src 'self' https://view.officeapps.live.com https://www.google.com;
-        connect-src 'self' https://view.officeapps.live.com https://res.cloudinary.com; 
-        img-src 'self' https://res.cloudinary.com data:; 
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-        font-src 'self' https://fonts.gstatic.com;
-    "
-    
-    # Allow cross-origin access
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
-
-# <RequireAll>
-#   Require all denied
-# </RequireAll>
+ # Add HSTS header with preload
+ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+ 
+ # Single redirect rule to handle HTTP, non-www, and root path to HTTPS www with language
+ RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+ RewriteCond %{HTTPS} off [OR]
+ RewriteCond %{REQUEST_URI} ^/?$
+ RewriteRule ^(.*)$ https://www.afemida.com/en/ [L,R=301]
+ 
+ # Handle other paths - force HTTPS and www only
+ RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+ RewriteCond %{HTTPS} off
+ RewriteRule ^(.*)$ https://www.afemida.com/$1 [L,R=301]
+ 
+ # Clean up index.html
+ RewriteRule ^(en|ru)/index\.html$ /$1/ [R=301,L]
+ 
+ <IfModule mod_headers.c>
+     # Security headers
+     Header set X-Content-Type-Options "nosniff"
+     Header set X-Frame-Options "SAMEORIGIN"
+     Header set X-XSS-Protection "1; mode=block"
+ 
+     # CSP headers to allow Microsoft Office viewer
+     Header set Content-Security-Policy "
+         default-src 'self'; 
+         script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; 
+         frame-src 'self' https://view.officeapps.live.com https://www.google.com;
+         connect-src 'self' https://view.officeapps.live.com https://res.cloudinary.com; 
+         img-src 'self' https://res.cloudinary.com data:; 
+         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+         font-src 'self' https://fonts.gstatic.com;
+     "
+     
+     # Allow cross-origin access
+     Header set Access-Control-Allow-Origin "*"
+ </IfModule>
+ 
+ # <RequireAll>
+ #   Require all denied
+ # </RequireAll>

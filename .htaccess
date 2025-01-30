@@ -4,16 +4,17 @@ RewriteEngine On
 # Add HSTS header with preload
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-# Single redirect rule to handle HTTP, non-www, and root path to HTTPS www with language
-RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^(.*)$ https://www.afemida.com/en/ [L,R=301]
-
-# Handle other paths - force HTTPS and www only
+# Force HTTPS and www for all requests
 RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.afemida.com/$1 [L,R=301]
+
+# Handle language-specific root paths
+RewriteCond %{REQUEST_URI} ^/ru/?$
+RewriteRule ^(.*)$ https://www.afemida.com/ru/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} ^/en/?$
+RewriteRule ^(.*)$ https://www.afemida.com/en/ [L,R=301]
 
 # Clean up index.html
 RewriteRule ^(en|ru)/index\.html$ /$1/ [R=301,L]

@@ -1,20 +1,32 @@
 //Navbar
 const burgerIcon = document.querySelector('.burger-icon');
-const navbarMenu =  document.querySelector('.navbar-menu');
-const menuItems = navbarMenu.querySelectorAll('a'); 
+const navbarMenu = document.querySelector('.navbar-menu');
+const menuItems = navbarMenu.querySelectorAll('a');
 
-burgerIcon.addEventListener('click', () => {
+function toggleMenu() {
+    burgerIcon.toggleAttribute('aria-expanded');
+
     burgerIcon.classList.toggle('toggle');
+
     if (navbarMenu.classList.contains('active')) {
         navbarMenu.classList.remove('active');
         setTimeout(() => {
             navbarMenu.style.display = 'none';
-        }, 500); 
+        }, 500);
     } else {
         navbarMenu.style.display = 'flex';
         requestAnimationFrame(() => {
             navbarMenu.classList.add('active');
         });
+    }
+}
+
+burgerIcon.addEventListener('click', toggleMenu);
+
+burgerIcon.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleMenu();
     }
 });
 
@@ -22,13 +34,16 @@ menuItems.forEach(item => {
     item.addEventListener('click', () => {
         if (navbarMenu.classList.contains('active')) {
             navbarMenu.classList.remove('active');
+            burgerIcon.classList.remove('toggle');
+            burgerIcon.setAttribute('aria-expanded', 'false');
+
             setTimeout(() => {
                 navbarMenu.style.display = 'none';
-            }, 500); 
-            burgerIcon.classList.toggle('toggle');
+            }, 500);
         }
     });
 });
+
 
 //Language Switcher
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,7 +77,7 @@ window.onscroll = function() {
 function scrollFunction() {
     const contactsContainer = document.querySelector("#contactActions");
     const toTopButton = document.querySelector("#toTopButton");
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    if (window.scrollY > 150) {
         contactsContainer.style.display = "block";
         toTopButton.style.display = "block";
     } else {

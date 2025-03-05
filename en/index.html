@@ -50,11 +50,17 @@
         <a href="/en/">
             <img class="navbar-logo" src="/assets/pictures/logo.webp" alt="AFEMIDA CONSULTING company's logo">
         </a>
-        <div class="burger-icon">
+        <div class="burger-icon" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open menu" 
+            aria-expanded="false" 
+            aria-controls="navbar-menu"
+            >
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
-        </div>
+        </div>        
         <div class="navbar-menu">
             <a href="/en/#mission">Our Mission</a>
             <a href="/en/#about">About us</a>
@@ -147,7 +153,7 @@
                                 <div class="swiper-slide">
                                     <div class="card">
                                         <div class="image-wrapper">
-                                            <img src="/assets/icons/Conveyancing.png" alt="" loading="lazy">
+                                            <img src="/assets/icons/Conveyancing.png" alt="">
                                         </div>
                                         <h3>Purchase and Sale Property</h3>
                                         <p>
@@ -159,7 +165,7 @@
                                 <div class="swiper-slide">
                                     <div class="card">
                                         <div class="image-wrapper">
-                                            <img src="/assets/icons/wills and probate.png" alt="" loading="lazy"/>
+                                            <img src="/assets/icons/wills and probate.png" alt=""/>
                                         </div>
                                         <h3>Wills and Probate Matters</h3>
                                         <p>
@@ -171,7 +177,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/criminal law.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/criminal law.png" alt=""/>
                                             </div>
                                             <h3>Criminal Law</h3>
                                             <p>
@@ -183,7 +189,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/family law.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/family law.png" alt=""/>
                                             </div>
                                             <h3>Family Law</h3>
                                             <p>
@@ -195,7 +201,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/ligitation.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/ligitation.png" alt=""/>
                                             </div>
                                             <h3>Litigation</h3>
                                             <p>
@@ -207,7 +213,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/company formation.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/company formation.png" alt=""/>
                                             </div>
                                             <h3>Company Formation</h3>
                                             <p>
@@ -219,7 +225,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/investment.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/investment.png" alt=""/>
                                             </div>
                                             <h3>Investment Consultations</h3>
                                             <p>
@@ -231,7 +237,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/TRNC residency.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/TRNC residency.png" alt=""/>
                                             </div>
                                             <h3>TRNC Residency</h3>
                                             <p>
@@ -243,7 +249,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/trust services.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/trust services.png" alt=""/>
                                             </div>
                                             <h3>Trust Services</h3>
                                             <p>
@@ -255,7 +261,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/Notary services.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/Notary services.png" alt=""/>
                                             </div>
                                             <h3>Notary Services </h3>
                                             <p>
@@ -267,7 +273,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/Rental Agreements.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/Rental Agreements.png" alt=""/>
                                             </div>
                                             <h3>Rental Agreements</h3>
                                             <p>
@@ -279,7 +285,7 @@
                                     <div class="swiper-slide">
                                         <div class="card">
                                             <div class="image-wrapper">
-                                                <img src="/assets/icons/Tittle deed.png" alt="" loading="lazy"/>
+                                                <img src="/assets/icons/Tittle deed.png" alt=""/>
                                             </div>
                                             <h3>Title Deed Transfer Services</h3>
                                             <p>
@@ -467,7 +473,14 @@
             </div>
     
             <div class="toTopButton-wrapper">
-                <img id="toTopButton" onclick="topFunction()" src="/assets/icons/icons8-arrow-up-50.png" alt="go to top icon"/>
+                <img 
+                    id="toTopButton" 
+                    onclick="topFunction()" 
+                    src="/assets/icons/icons8-arrow-up-50.png" 
+                    alt=""
+                    role="button" 
+                    aria-label="Scroll Up"
+                    />   
             </div> 
         </section>
     </main>

@@ -14,7 +14,8 @@
     <meta property="og:description" content="AFEMIDA - ваш надежный русскоязычный адвокат и юрист, консультант на Северном Кипре. Открытие компании и юридические услуги.">
     <meta property="og:url" content="https://www.afemida.com/ru/company-formation.html">
     <meta property="og:image" content="https://www.afemida.com/assets/pictures/framed_logo.png">
-    
+    <meta property="og:image:alt" content="Логотип AFEMIDA – юридическая помощь на Северном Кипре">
+
     <!-- Language Alternates and Canonical -->
     <link rel="canonical" href="https://www.afemida.com/ru/company-formation.html">
     <link rel="alternate" hreflang="en" href="https://www.afemida.com/en/company-formation.html">
@@ -32,11 +33,17 @@
     <title>AFEMIDA | Открытие компании на Северном Кипре | Русскоязычные адвокаты и юристы</title>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <a href="/ru/">
-            <img class="navbar-logo" src="/assets/pictures/logo.webp" alt="AFEMIDA CONSULTING company's logo">
+            <img class="navbar-logo" src="/assets/pictures/logo.webp" alt="Логотип AFEMIDA Consulting – юридическая компания на Северном Кипре">
         </a>
-        <div class="burger-icon">
+        <div class="burger-icon" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Открыть меню" 
+            aria-expanded="false" 
+            aria-controls="navbar-menu"
+            >
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
@@ -130,7 +137,14 @@
             </div>
     
             <div class="toTopButton-wrapper">
-                <img id="toTopButton" onclick="topFunction()" src="/assets/icons/icons8-arrow-up-50.png" alt="go to top icon"/>
+                <img 
+                    id="toTopButton" 
+                    onclick="topFunction()" 
+                    src="/assets/icons/icons8-arrow-up-50.png" 
+                    alt=""
+                    role="button" 
+                    aria-label="Прокрутить наверх"
+                    />   
             </div> 
         </section>
     </main>
@@ -139,7 +153,7 @@
         <div class="wrapper">
             <div class="footer-about">
                 <a href="/ru/">
-                    <img class="footer-logo" src="/assets/pictures/logo.webp" alt="AFEMIDA CONSULTING company's logo"/>
+                    <img class="footer-logo" src="/assets/pictures/logo.webp" alt="Логотип AFEMIDA – адвокаты и нотариусы на Северном Кипре">
                 </a>
             </div>
             <div class="footer-nav">

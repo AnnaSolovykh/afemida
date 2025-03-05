@@ -15,7 +15,8 @@
     <meta property="og:description" content="Explore Northern Cyprus with AFEMIDA Consulting. Discover the beauty, history, and culture of this unique destination.">
     <meta property="og:url" content="https://www.afemida.com/en/northern-cyprus.html">
     <meta property="og:image" content="https://www.afemida.com/assets/pictures/framed_logo.png">
-    
+    <meta property="og:image:alt" content="AFEMIDA Consulting Logo">
+
     <!-- Language Alternates and Canonical -->
     <link rel="canonical" href="https://www.afemida.com/en/northern-cyprus.html">
     <link rel="alternate" hreflang="en" href="https://www.afemida.com/en/northern-cyprus.html">
@@ -33,11 +34,17 @@
     <title>Northern Cyprus | AFEMIDA CONSULTING | Legal Services and Business Solutions</title>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <a href="/en/">
             <img class="navbar-logo" src="/assets/pictures/logo.webp" alt="AFEMIDA CONSULTING company's logo">
         </a>
-        <div class="burger-icon">
+        <div class="burger-icon" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open menu" 
+            aria-expanded="false" 
+            aria-controls="navbar-menu"
+            >
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
@@ -64,15 +71,15 @@
         <section class="carousel-wrapper">
             <div class="carousel">
                 <div class="slides">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/kyrenia harbour-1.webp" alt="A picturesque harbor view at sunset with boats docked in calm waters, old buildings lining the shore, and mountains in the distance.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/cyprus.webp" alt="Scenic overlook of a luxury seaside resort with multiple swimming pools, lush gardens, and a clear view of the calm blue sea.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/manzara.webp" alt= "Partly cloudy sky over ancient stone ruins with arched doorways, surrounded by manicured lawns and modern buildings in the background.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/church.webp"  alt= "Wide-angle view of a historic stone archway with multiple arches under a clear blue sky, surrounded by modern buildings and a cobblestone plaza.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/secret-travel-guide-O_7emptPfWM-unsplash.webp" alt="A stunning coastal view featuring crystal clear turquoise waters, rocky formations, and a view of a beachfront city in the distance.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/spencer-watson-donkey.webp" alt="A solitary donkey standing on a sandy beach with a backdrop of gentle ocean waves and a clear blue sky.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/omer-haktan-bulut-breakfast.webp" alt= "A vibrant overhead spread of a traditional breakfast with various dishes including eggs, meats, cheeses, and fresh fruits.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/olga-pukhalskaya-cay.webp" alt="Close-up of a traditional glass of tea, illuminated by sunlight, casting a warm glow and a soft reflection on a wooden surface.">
-                    <img class="slide" src="/assets/pictures/northern-cyprus/philippe-gauthier-eaOjEz8746k-unsplash.webp" alt="Bright orange fruit heavily laden on lush green citrus trees under a clear blue sky.">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/kyrenia harbour-1.webp" alt="A picturesque harbor view at sunset with boats docked in calm waters, old buildings lining the shore, and mountains in the distance." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/cyprus.webp" alt="Scenic overlook of a luxury seaside resort with multiple swimming pools, lush gardens, and a clear view of the calm blue sea." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/manzara.webp" alt= "Partly cloudy sky over ancient stone ruins with arched doorways, surrounded by manicured lawns and modern buildings in the background." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/church.webp"  alt= "Wide-angle view of a historic stone archway with multiple arches under a clear blue sky, surrounded by modern buildings and a cobblestone plaza." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/secret-travel-guide-O_7emptPfWM-unsplash.webp" alt="A stunning coastal view featuring crystal clear turquoise waters, rocky formations, and a view of a beachfront city in the distance." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/spencer-watson-donkey.webp" alt="A solitary donkey standing on a sandy beach with a backdrop of gentle ocean waves and a clear blue sky." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/omer-haktan-bulut-breakfast.webp" alt= "A vibrant overhead spread of a traditional breakfast with various dishes including eggs, meats, cheeses, and fresh fruits." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/olga-pukhalskaya-cay.webp" alt="Close-up of a traditional glass of tea, illuminated by sunlight, casting a warm glow and a soft reflection on a wooden surface." loading="lazy">
+                    <img class="slide" src="/assets/pictures/northern-cyprus/philippe-gauthier-eaOjEz8746k-unsplash.webp" alt="Bright orange fruit heavily laden on lush green citrus trees under a clear blue sky." loading="lazy">
                 </div>
                 <div class="controls">
                     <div class="control prev-slide"><img src="/assets/icons/icons8-triangle-arrow-left.png" alt="triange arrow to the left"/></div> 
@@ -178,7 +185,14 @@
             </div>
 
             <div class="toTopButton-wrapper">
-                <img id="toTopButton" onclick="topFunction()" src="/assets/icons/icons8-arrow-up-50.png" alt="go to top icon"/>
+                <img 
+                    id="toTopButton" 
+                    onclick="topFunction()" 
+                    src="/assets/icons/icons8-arrow-up-50.png" 
+                    alt=""
+                    role="button" 
+                    aria-label="Scroll Up"
+                    />   
             </div> 
         </section>
     </main>

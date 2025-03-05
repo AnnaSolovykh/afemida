@@ -15,6 +15,7 @@
     <meta property="og:description" content="Expert legal guidance on company formation in Northern Cyprus, including LLC setup, foreign investment, and Free Trade Zone advantages.">
     <meta property="og:url" content="https://www.afemida.com/en/company-formation.html">
     <meta property="og:image" content="https://www.afemida.com/assets/pictures/framed_logo.png">
+    <meta property="og:image:alt" content="AFEMIDA Consulting Logo">
     
     <!-- Language Alternates and Canonical -->
     <link rel="canonical" href="https://www.afemida.com/en/company-formation.html">
@@ -32,11 +33,17 @@
     <title>Company Formation in Northern Cyprus | AFEMIDA Consulting</title>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <a href="/en/">
             <img class="navbar-logo" src="/assets/pictures/logo.webp" alt="AFEMIDA Consulting company's logo">
         </a>
-        <div class="burger-icon">
+        <div class="burger-icon" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open menu" 
+            aria-expanded="false" 
+            aria-controls="navbar-menu"
+            >
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
@@ -128,7 +135,14 @@
             </div>
     
             <div class="toTopButton-wrapper">
-                <img id="toTopButton" onclick="topFunction()" src="/assets/icons/icons8-arrow-up-50.png" alt="go to top icon"/>
+                <img 
+                    id="toTopButton" 
+                    onclick="topFunction()" 
+                    src="/assets/icons/icons8-arrow-up-50.png" 
+                    alt=""
+                    role="button" 
+                    aria-label="Scroll Up"
+                    />   
             </div> 
         </section>
     </main>
